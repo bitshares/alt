@@ -1,10 +1,12 @@
-import { jsdom } from 'jsdom'
+import jsdom from 'jsdom'
+const { JSDOM } = jsdom;
 import Alt from '../'
 import React from 'react'
 import { assert } from 'chai'
 import sinon from 'sinon'
-import TestUtils from 'react-addons-test-utils'
+import TestUtils from 'react-dom/test-utils'
 import ReactDom from 'react-dom'
+import { Test } from 'mocha'
 
 // TOOD action was called but not dispatched?
 const Actions = {
@@ -12,6 +14,7 @@ const Actions = {
     setTimeout(() => {
       this.switchComponent()
     }, 10)
+    return true
   },
 
   switchComponent() {
@@ -38,7 +41,7 @@ class ComponentA extends React.Component {
     this.state = props.alt.stores.store.getState()
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.alt.stores.store.listen(state => this.setState(state))
   }
 
@@ -52,7 +55,7 @@ class ComponentA extends React.Component {
 }
 
 class ComponentB extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     let error = null
     try {
       this.props.alt.actions.actions.uhoh()
@@ -71,7 +74,8 @@ class ComponentB extends React.Component {
 export default {
   'Batching dispatcher': {
     beforeEach() {
-      global.document = jsdom('<!doctype html><html><body></body></html>')
+      const { document } = (new JSDOM('<!doctype html><html><body></body></html>')).window
+      global.document = document
       global.window = global.document.defaultView
     },
 

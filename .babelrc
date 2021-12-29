@@ -1,8 +1,16 @@
 {
-  "presets": ["env", "babel-preset-react", "airbnb", "babel-preset-stage-0"],
+  "presets": [
+    [
+      "@babel/preset-env",
+      { "modules": false, "targets": { "node": "current" } }
+    ],
+    ["@babel/preset-react", { "targets": { "node": "current" } }],
+    "airbnb"
+  ],
   "plugins": [
     "add-module-exports",
     "transform-class-properties",
-    ["transform-es2015-classes", { loose: true }],
+    "@babel/plugin-transform-classes",
+    ["transform-es2015-classes", { "loose": true }]
   ]
 }

@@ -1,6 +1,6 @@
+import isPromise from 'is-promise'
 import * as fn from '../functions'
 import * as utils from '../utils/AltUtils'
-import isPromise from 'is-promise'
 
 export default function makeAction(alt, namespace, name, implementation, obj) {
   const id = utils.uid(alt._actionsRegistry, `${namespace}.${name}`)

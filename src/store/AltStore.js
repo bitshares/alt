@@ -1,5 +1,6 @@
-import * as fn from '../functions'
 import transmitter from 'transmitter'
+import * as fn from '../functions'
+
 
 class AltStore {
   constructor(alt, model, state, StoreModel) {

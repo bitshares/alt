@@ -46,9 +46,9 @@ const StoreMixin = {
         const value = spec.local && spec.local(state, ...args)
         const shouldFetch = spec.shouldFetch
           ? spec.shouldFetch(state, ...args)
-          /*eslint-disable*/
+          /* eslint-disable */
           : value == null
-          /*eslint-enable*/
+          /* eslint-enable */
         const intercept = spec.interceptResponse || (x => x)
 
         const makeActionHandler = (action, isError) => {

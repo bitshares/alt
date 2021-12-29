@@ -19,12 +19,12 @@ const api = {
   local(state) { },
 }
 
-const remote = sinon.stub(api, 'remote', (state, repo = state.repo) => {
+const remote = sinon.stub(api, 'remote').callsFake((state, repo = state.repo) => {
   const url = `https://api.github.com/repos/${state.user}/${repo}/stargazers`
   return repo === 'alts' ? failjax(url) : fauxjax(url)
 })
 
-const local = sinon.stub(api, 'local', (state) => {
+const local = sinon.stub(api, 'local').callsFake((state) => {
   return state.users.length ? state.users : null
 })
 
@@ -114,8 +114,8 @@ export default {
       global.window = {}
 
       alt.recycle()
-      local.reset()
-      remote.reset()
+      local.resetHistory()
+      remote.resetHistory()
     },
 
     afterEach() {
