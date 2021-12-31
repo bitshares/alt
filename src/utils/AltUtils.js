@@ -1,9 +1,9 @@
 import * as fn from '../functions'
 
-/*eslint-disable*/
+/* eslint-disable */
 const builtIns = Object.getOwnPropertyNames(NoopClass)
 const builtInProto = Object.getOwnPropertyNames(NoopClass.prototype)
-/*eslint-enable*/
+/* eslint-enable */
 
 export function getInternalMethods(Obj, isProto) {
   const excluded = isProto ? builtInProto : builtIns
@@ -29,11 +29,11 @@ export function getPrototypeChain(Obj, methods = {}) {
 
 export function warn(msg) {
   /* istanbul ignore else */
-  /*eslint-disable*/
+  /* eslint-disable */
   if (typeof console !== 'undefined') {
     console.warn(new ReferenceError(msg))
   }
-  /*eslint-enable*/
+  /* eslint-enable */
 }
 
 export function uid(container, name) {

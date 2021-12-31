@@ -3,6 +3,7 @@ module.exports = {
   entry: {
     'alt': ['./index.js'],
   },
+  mode: "production",
   output: {
     path: __dirname + '/dist',
     filename: '[name].min.js',
@@ -10,7 +11,7 @@ module.exports = {
     libraryTarget: 'umd'
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       loader: 'babel-loader',
       exclude: /node_modules/
