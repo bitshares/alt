@@ -4449,7 +4449,7 @@ react-text-highlight@^0.1.1:
 react@^0.13.3:
   version "0.13.3"
   resolved "https://registry.yarnpkg.com/react/-/react-0.13.3.tgz#a2dfa85335d7dc02b82b482f089582e64cc13356"
-  integrity sha1-ot+oUzXX3AK4K0gvCJWC5kzBM1Y=
+  integrity sha512-f9bivPvgNqGmcxjSuKCkY27YVKi1RlDm4TlPUNjLDH7lN6gnMQp9lJ9PpTVbo9kNEBr2BIZLz1kI/RFh9Cq2Kg==
   dependencies:
     envify "^3.0.0"
 
